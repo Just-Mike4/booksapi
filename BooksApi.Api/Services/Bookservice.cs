@@ -15,9 +15,14 @@ namespace BooksApi.Api.Services
         {
             _context = context;
         }
-        public async Task<IEnumerable<Book>> GetAllBooksAsync()
+        public async Task<IEnumerable<Book>> GetAllBooksAsync(string? searchTerm=null)
         {
-            return await _context.Books.ToListAsync();
+            var query = _context.Books.AsQueryable();
+            if (!string.IsNullOrWhiteSpace(searchTerm))
+            {
+                query = query.Where(b => b.Title.Contains(searchTerm) || b.Author.Contains(searchTerm));
+            }
+            return await query.ToListAsync();
         }
 
         public async Task<Book?> GetBookByIdAsync(int id)

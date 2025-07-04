@@ -55,11 +55,11 @@ namespace BooksApi.Api.Services
 
         public async Task<(string? Token, string? Error)> LoginAsync(UserLoginDto loginDto)
         {
-            var user = await _context.Users.SingleOrDefaultAsync(u => u.Username == loginDto.Username);
+            var user = await _context.Users.SingleOrDefaultAsync(u => u.Email == loginDto.Email);
 
             if (user == null || !BCrypt.Net.BCrypt.Verify(loginDto.Password, user.PasswordHash))
             {
-                return (null, "Invalid username or password");
+                return (null, "Invalid Email or password");
             }
             var token = GenerateJwtToken(user);
             return (token, null);

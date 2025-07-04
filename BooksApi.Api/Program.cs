@@ -12,9 +12,15 @@ using System.Text;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
-
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 options.UseInMemoryDatabase("BooksApiDb"));
+
+// builder.Services.AddDbContext<ApplicationDbContext>(options =>
+//     options.UseMySQL(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// "ConnectionStrings": {
+  //   "DefaultConnection": "Server=localhost;port=3306;Database=booksapidb;Uid=root;Pwd=pass;"
+  // }
 
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IBookService, BookService>();

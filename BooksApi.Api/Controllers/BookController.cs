@@ -20,9 +20,9 @@ namespace BooksApi.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Book>>> GetAllBooks()
+        public async Task<ActionResult<IEnumerable<Book>>> GetAllBooks([FromQuery] string? searchTerm)
         {
-            var books = await _bookService.GetAllBooksAsync();
+            var books = await _bookService.GetAllBooksAsync(searchTerm);
             return Ok(books);
         }
 
