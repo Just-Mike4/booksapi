@@ -1,0 +1,65 @@
+# .NET build results
+bin/
+obj/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Visual Studio Code
+.vscode/
+
+# Rider
+.idea/
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# Dotnet publish
+publish/
+
+# NuGet packages
+*.nupkg
+*.snupkg
+packages/
+*.nuspec
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Logs
+*.log
+
+# Others
+*.vspscc
+*.vssscc
+*.dbmdl
+*.pdb
+
+# Environment files
+.env
+
+# Test results
+TestResults/
+*.coverage
+*.coveragexml
+
+# Local history for Visual Studio
+.localhistory/
+
+# Backup & temporary files
+~$*
+*.tmp
+*.bak
+*.swp
+*.swo
+
+# Mac files
+.DS_Store
+
+# Windows files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
